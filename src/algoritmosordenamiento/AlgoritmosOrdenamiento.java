@@ -5,7 +5,9 @@
  */
 package algoritmosordenamiento;
 
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.util.Arrays;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -179,24 +181,38 @@ public class AlgoritmosOrdenamiento {
         }
 }
 
-public static void main(String[] args) {
+        public static void main(String[] args) {
   
 
      
         try {
             long startTime = System.nanoTime();
          
-            censo c = new censo();
+            Censo c = new Censo();
 
-            Integer [] arr = c.getID();
+            Pelicula [] arr = c.getPeliculas();
             System.out.println(Arrays.toString(arr));
+            
             selectionSort(arr);
-            System.out.println(Arrays.toString(arr));
+            //insertionSort(arr);
+            //bubbleSort(arr);
+            //quickSort(arr,0,arr.length-1);
+            //mergeSort(arr,0,arr.length-1);
             
-            long endTime = System.nanoTime();
-            long duration = (endTime - startTime); 
-            System.out.println("That took " + (endTime - startTime) + " milliseconds");
             
+            //PrintStream out = new PrintStream(new FileOutputStream("/Users/Miros/NetBeansProjects/AlgoritmosOrdenamiento/src/algoritmosordenamiento/ordenados.txt"));
+            //System.setOut(out);
+            
+            Arrays.stream(arr).forEach(System.out::println);
+            
+           // System.out.println(Arrays.toString(arr));
+            
+
+            //long endTime = System.nanoTime();
+            //long duration = (endTime - startTime); 
+            //System.out.println("That took " + (endTime - startTime) + " milliseconds");
+   
+
         } catch (IOException ex) {
             Logger.getLogger(AlgoritmosOrdenamiento.class.getName()).log(Level.SEVERE, null, ex);
         }
