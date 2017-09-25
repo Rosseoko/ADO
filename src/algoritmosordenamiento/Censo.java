@@ -14,14 +14,14 @@ import java.io.*;
 public class Censo
 {
 
-    public static Pelicula[] peliculas = new Pelicula[17769];
+    public static Pelicula[] peliculas = new Pelicula[17699];
 
       
     public Censo() throws IOException{
-        try (BufferedReader in = new BufferedReader(new FileReader("/Users/Miros/NetBeansProjects/AlgoritmosOrdenamiento/src/algoritmosordenamiento/ordenados.txt"))) {
+        try (BufferedReader in = new BufferedReader(new FileReader("./src/algoritmosordenamiento/ordenados.txt"))) {
             String line;
             int i = 0;
-            while((line = in.readLine()) != null && i < 17769)
+            while((line = in.readLine()) != null && i < 17699)
             {
                 String[] tokens = line.split(",");
 
