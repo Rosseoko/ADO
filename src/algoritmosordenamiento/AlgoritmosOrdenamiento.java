@@ -227,7 +227,25 @@ public static <T extends Comparable <T>> void quickSort(T[] data, int min, int m
         
 }
     
+    public static <T extends Comparable<T>> Pelicula[] getRandomArray(Pelicula[]arr){
     
+        Set<Pelicula> set = new HashSet<Pelicula>();
+        
+            for(int i = 0; i < arr.length; i++){ 
+            set.add(arr[i]);
+            
+            }
+            
+            List<Pelicula> list = new LinkedList<Pelicula>(set);
+            Collections.shuffle(list);
+            Set<Pelicula> randomSet = new HashSet<Pelicula>(list.subList(0, 1));    
+        
+            Pelicula[] randy = randomSet.toArray(new Pelicula[randomSet.size()]);
+            
+            return randy;
+    
+    
+    }
     
   
 
@@ -241,17 +259,8 @@ public static <T extends Comparable <T>> void quickSort(T[] data, int min, int m
             Censo c = new Censo();
             Pelicula [] arr = c.getPeliculas();
             
-            
-            //Get Random set  
-            Set<Pelicula> set = new HashSet<Pelicula>();
-                    for(int i = 0; i < arr.length; i++) 
-                       set.add(arr[i]);
-                    
-            List<Pelicula> list = new LinkedList<Pelicula>(set);
-            Collections.shuffle(list);
-            Set<Pelicula> randomSet = new HashSet<Pelicula>(list.subList(0, 1000));    
-        
-            Pelicula[] randy = randomSet.toArray(new Pelicula[randomSet.size()]);
+            Pelicula [] randy = getRandomArray(arr);
+           
             
             System.out.println(Arrays.toString(randy));
                     
